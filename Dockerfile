@@ -4,8 +4,9 @@ FROM ubuntu:${osversion}
 ARG VERSION=master
 ARG VCS_REF
 ARG BUILD_DATE
+ARG osversion
 
-RUN echo "VCS_REF: "${VCS_REF}", BUILD_DATE: "${BUILD_DATE}", VERSION: "${VERSION}
+RUN echo "VCS_REF: "${VCS_REF}", BUILD_DATE: "${BUILD_DATE}", VERSION: "${VERSION}", osversion: "${osversion}
 
 LABEL maintainer="frank.foerster@ime.fraunhofer.de" \
       description="Dockerfile providing the DESeq2 software" \
@@ -29,7 +30,7 @@ RUN apt update && \
     apt --yes autoremove \
     && apt autoclean \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
-    
+
 VOLUME /data
 
 WORKDIR /data
