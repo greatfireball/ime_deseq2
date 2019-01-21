@@ -25,12 +25,13 @@ RUN apt update && \
     apt update && \
     apt install --yes \
        libcurl4-openssl-dev \
+       libxml2-dev \
        r-base \
        r-base-dev && \
     apt --yes autoremove \
     && apt autoclean \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
-
+    
 VOLUME /data
 
 WORKDIR /data
