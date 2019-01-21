@@ -1,4 +1,4 @@
-ARG osversion=bionic
+ARG osversion=xenial
 FROM ubuntu:${osversion}
 
 ARG VERSION=master
@@ -29,7 +29,7 @@ RUN apt update && \
     apt --yes autoremove \
     && apt autoclean \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
-
+    
 VOLUME /data
 
 WORKDIR /data
