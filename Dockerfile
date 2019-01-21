@@ -31,7 +31,9 @@ RUN apt update && \
     apt --yes autoremove \
     && apt autoclean \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
-    
+
+RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite("DESeq2",suppressUpdates=T, ask=F, suppressAutoUpdate=T);'
+
 VOLUME /data
 
 WORKDIR /data
