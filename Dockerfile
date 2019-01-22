@@ -33,7 +33,7 @@ RUN apt update && \
     && rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
 
 RUN Rscript -e 'source("https://bioconductor.org/biocLite.R"); biocLite("DESeq2",suppressUpdates=T, ask=F, suppressAutoUpdate=T);'
-RUN wget -O /tmp/deseq2.tar.gz https://bioconductor.org/packages/3.4/bioc/src/contrib/DESeq2_1.14.1.tar.gz && Rscript -e 'remove.packages("DESeq2"); install.packages("/tmp/deseq2.tar.gz");'
+RUN wget -O /tmp/deseq2.tar.gz https://bioconductor.org/packages/3.5/bioc/src/contrib/DESeq2_1.16.1.tar.gz && Rscript -e 'remove.packages("DESeq2"); install.packages("/tmp/deseq2.tar.gz");'
 
 VOLUME /data
 
